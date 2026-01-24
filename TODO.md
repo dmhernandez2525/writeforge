@@ -72,6 +72,11 @@
   - Completed: 2026-01-24
   - Note: Requires new PowerShell window to take effect
 
+- [x] **Create agent-sync repo** - Cross-machine agent communication system
+  - Completed: 2026-01-24
+  - GitHub: https://github.com/dmhernandez2525/agent-sync
+  - Files: CONTEXT.md, QUESTIONS.md, CONVERSATION.md
+
 ---
 
 ## Archive
