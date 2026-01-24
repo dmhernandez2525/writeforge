@@ -6,6 +6,12 @@
 
 ## Active Tasks
 
+- [ ] **Enable BIOS virtualization for WSL2** - Required for WSL2 and Docker
+  - Context: WSL2 install failed because "Virtual Machine Platform" requires virtualization enabled in BIOS. Need to reboot into BIOS and enable Intel VT-x or AMD-V.
+  - Added: 2026-01-24
+  - Priority: HIGH
+  - Steps: 1) Reboot, enter BIOS (usually F2/Del/F12), 2) Find virtualization setting, 3) Enable it, 4) Save and reboot, 5) Run `wsl --install`
+
 - [ ] **Create Windows launcher for gmail-organizer** - PowerShell script to launch the app on Windows
   - Context: The existing launcher is bash/macOS only. Need Windows equivalent for cross-platform parity.
   - Added: 2026-01-24
@@ -16,25 +22,16 @@
   - Added: 2026-01-24
   - Priority: Low
 
-- [ ] **Run Windows dev environment setup** - Execute windows-install.ps1 as Admin
-  - Context: From dev-environment-setup repo. Installs WSL2, Docker, VS Code, etc.
-  - Added: 2026-01-24
-  - Priority: High
-
 - [ ] **Decide on Windows username change** - Options: display name only, new user, or skip
   - Context: Windows username is "danie" but user prefers "daniel". Low priority cosmetic issue.
   - Added: 2026-01-24
   - Priority: Low
 
-- [ ] **Add DictationHistory.ahk to Windows Startup** - Create shortcut in Startup folder
-  - Context: New script created to log all dictations. Needs to run at boot.
+- [ ] **Test DictationHistory workflow** - Verify Ctrl+Shift+S saves selected text
+  - Context: Dictation capture was rewritten to use select-then-save workflow. Need to confirm it works.
   - Added: 2026-01-24
   - Priority: Medium
-
-- [ ] **Test DictationHistory.ahk** - Verify logging works correctly
-  - Context: Newly created script, untested. Need to confirm it captures dictations properly.
-  - Added: 2026-01-24
-  - Priority: Medium
+  - Test: 1) Dictate text with Voice Typing, 2) Select the text, 3) Press Ctrl+Shift+S, 4) Press Ctrl+Shift+A to view history
 
 ---
 
@@ -52,16 +49,31 @@
 - [x] **Audit repos for Windows compatibility** - Documented which repos need Windows adaptations
   - Completed: 2026-01-24
 
-- [x] **Create Global TODO system** - Set up synced repo for cross-machine task tracking
+- [x] **Create Global TODO system** - Set up synced git repo for cross-machine task tracking
   - Completed: 2026-01-24
 
-- [x] **Create DictationHistory.ahk** - AutoHotkey script to log all dictated text with timestamps
+- [x] **Create DictationHistory.ahk** - AutoHotkey script with Ctrl+Shift+S to save selected text
   - Completed: 2026-01-24
+  - Note: Uses select-then-save workflow because Voice Typing bypasses keyboard hooks
+
+- [x] **Add HotReload.ahk** - Auto-reload scripts when files change
+  - Completed: 2026-01-24
+  - Hotkey: Win+F5 for manual reload
+
+- [x] **Add DictationHistory.ahk to Windows Startup** - Created shortcut in Startup folder
+  - Completed: 2026-01-24
+
+- [x] **Run Windows dev environment setup (partial)** - Installed tools, WSL2 pending
+  - Completed: 2026-01-24
+  - Installed: Docker Desktop, Tailscale, Cursor, Ollama, RustDesk, VS Code extensions
+  - Pending: WSL2 (needs BIOS virtualization)
+
+- [x] **Fix Claude CLI PATH** - Added C:\Users\danie\.local\bin to user PATH
+  - Completed: 2026-01-24
+  - Note: Requires new PowerShell window to take effect
 
 ---
 
 ## Archive
 
 Tasks older than 30 days can be moved here to keep the Completed section manageable.
-
-<!-- Move old completed tasks here periodically -->
