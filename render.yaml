@@ -1,0 +1,48 @@
+# WriteForge Render Blueprint
+# This configures the marketing website deployment
+
+services:
+  # Marketing Website (Static Site)
+  - type: web
+    runtime: static
+    name: writeforge-site
+    rootDir: apps/website
+    buildCommand: pnpm install && pnpm build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache
+
+  # Self-Hosted API Server (for enterprise customers)
+  # Uncomment when API is ready
+  # - type: web
+  #   name: writeforge-api
+  #   runtime: node
+  #   rootDir: packages/api
+  #   buildCommand: pnpm install && pnpm build
+  #   startCommand: pnpm start
+  #   envVars:
+  #     - key: NODE_ENV
+  #       value: production
+  #     - key: PORT
+  #       value: "10000"
