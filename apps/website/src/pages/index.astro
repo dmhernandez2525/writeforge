@@ -1,0 +1,425 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const features = [
+  {
+    icon: '🔒',
+    title: '100% Local Processing',
+    description: 'Every keystroke stays on your device. No servers, no cloud, no data collection. Your writing is yours alone.',
+  },
+  {
+    icon: '✈️',
+    title: 'Works Offline',
+    description: 'Full functionality without internet. Perfect for flights, coffee shops, or anywhere connectivity is limited.',
+  },
+  {
+    icon: '🤖',
+    title: 'AI-Powered Suggestions',
+    description: 'Local AI models provide contextual suggestions, tone detection, and intelligent rewriting - all on-device.',
+  },
+  {
+    icon: '🌍',
+    title: '30+ Languages',
+    description: 'Comprehensive grammar and spelling support for over 30 languages, powered by LanguageTool.',
+  },
+  {
+    icon: '🖥️',
+    title: 'Cross-Platform',
+    description: 'Browser extensions for Chrome, Safari, and Firefox. Native desktop apps for macOS, Windows, and Linux.',
+  },
+  {
+    icon: '🏢',
+    title: 'Self-Hostable',
+    description: 'Enterprise teams can deploy WriteForge on their own infrastructure. Full control, full compliance.',
+  },
+];
+
+const comparisons = [
+  { feature: 'Grammar Checking', writeforge: true, grammarly: true, languagetool: true },
+  { feature: '100% Local Processing', writeforge: true, grammarly: false, languagetool: false },
+  { feature: 'Works Offline', writeforge: true, grammarly: false, languagetool: false },
+  { feature: 'AI Suggestions', writeforge: true, grammarly: true, languagetool: false },
+  { feature: 'Linux Desktop App', writeforge: true, grammarly: false, languagetool: false },
+  { feature: 'Self-Hostable', writeforge: true, grammarly: false, languagetool: true },
+  { feature: 'Open Source Core', writeforge: true, grammarly: false, languagetool: true },
+  { feature: 'No Data Collection', writeforge: true, grammarly: false, languagetool: false },
+];
+
+const pricingTiers = [
+  {
+    name: 'Free',
+    price: '$0',
+    period: 'forever',
+    description: 'Grammar checking for everyone',
+    features: [
+      'LanguageTool grammar engine',
+      '30+ language support',
+      'Browser extension',
+      '100% offline capable',
+      'Personal dictionary',
+    ],
+    cta: 'Download Free',
+    highlighted: false,
+  },
+  {
+    name: 'Personal',
+    price: '$69',
+    period: '/year',
+    description: 'AI-powered writing assistance',
+    features: [
+      'Everything in Free',
+      'AI suggestions & rewriting',
+      'Tone detection & adjustment',
+      'Desktop apps (Mac, Win, Linux)',
+      'Writing statistics',
+      'Priority support',
+    ],
+    cta: 'Start Free Trial',
+    highlighted: true,
+    lifetime: '$149 one-time',
+  },
+  {
+    name: 'Team',
+    price: '$12',
+    period: '/seat/month',
+    description: 'For organizations',
+    features: [
+      'Everything in Personal',
+      'Admin dashboard',
+      'Shared dictionaries',
+      'Custom style guides',
+      'Usage analytics',
+      'SSO integration',
+    ],
+    cta: 'Contact Sales',
+    highlighted: false,
+  },
+];
+
+const faqs = [
+  {
+    question: 'How is WriteForge different from Grammarly?',
+    answer: 'WriteForge processes everything locally on your device. Unlike Grammarly, which sends every keystroke to their servers, WriteForge never transmits your text anywhere. This makes it suitable for sensitive content, regulated industries, and privacy-conscious users.',
+  },
+  {
+    question: 'Does it really work offline?',
+    answer: 'Yes! Once installed, WriteForge works completely offline. The grammar engine and AI models run locally on your device. No internet connection required for any feature.',
+  },
+  {
+    question: 'How accurate is the grammar checking?',
+    answer: 'WriteForge uses LanguageTool, which provides 80-90% of Grammarly\'s accuracy for grammar and spelling. Combined with our local AI model, we match or exceed competitors for most use cases.',
+  },
+  {
+    question: 'What about the AI features? Don\'t those need the cloud?',
+    answer: 'No! We use small, efficient AI models (Qwen2.5) that run entirely on your device. Desktop apps use models up to 1.5B parameters; browser extensions use a smaller 0.5B model optimized for WebGPU.',
+  },
+  {
+    question: 'Is my data used to train AI models?',
+    answer: 'Absolutely not. Your text never leaves your device, so it\'s mathematically impossible for us to use it for training. This is a fundamental architectural guarantee, not just a policy.',
+  },
+  {
+    question: 'Can my company self-host WriteForge?',
+    answer: 'Yes! Enterprise customers can deploy WriteForge on their own infrastructure using our Docker images. This provides complete control over data and compliance with internal security policies.',
+  },
+];
+---
+
+<Layout title="WriteForge - Privacy-First AI Writing Assistant">
+  <Header />
+
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="section bg-gradient-to-b from-primary-50 to-white">
+      <div class="container-wide mx-auto text-center">
+        <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-8">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+          </span>
+          Now available for Chrome, macOS, and more
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
+          Write Better.<br />
+          <span class="gradient-text">Stay Private.</span>
+        </h1>
+
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+          Professional grammar checking, AI-powered suggestions, and tone detection -
+          without sending a single keystroke to the cloud.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+          <a href="#download" class="btn btn-primary text-lg px-8 py-4">
+            Download Free
+          </a>
+          <a href="#features" class="btn btn-secondary text-lg px-8 py-4">
+            See Features
+          </a>
+        </div>
+
+        <!-- Hero Image/Demo -->
+        <div class="relative max-w-4xl mx-auto">
+          <div class="bg-gray-900 rounded-xl shadow-2xl overflow-hidden">
+            <div class="flex items-center gap-2 px-4 py-3 bg-gray-800">
+              <div class="w-3 h-3 rounded-full bg-red-500"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500"></div>
+              <span class="ml-4 text-gray-400 text-sm">WriteForge</span>
+            </div>
+            <div class="p-6 text-left font-mono text-sm">
+              <p class="text-gray-300 leading-relaxed">
+                <span class="text-gray-500">// Your text stays here. Always.</span><br /><br />
+                The quick brown fox <span class="underline decoration-wavy decoration-red-500">jumps</span> over the lazy dog.<br /><br />
+                <span class="text-green-400">✓ Grammar checking: Local</span><br />
+                <span class="text-green-400">✓ AI suggestions: Local</span><br />
+                <span class="text-green-400">✓ Data sent to cloud: None</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-12 bg-gray-50 border-y border-gray-100">
+      <div class="container-wide mx-auto px-4">
+        <p class="text-center text-gray-500 mb-8">Trusted by privacy-conscious professionals</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-16 opacity-60 grayscale">
+          <span class="text-2xl font-bold text-gray-400">Enterprise</span>
+          <span class="text-2xl font-bold text-gray-400">Healthcare</span>
+          <span class="text-2xl font-bold text-gray-400">Legal</span>
+          <span class="text-2xl font-bold text-gray-400">Finance</span>
+          <span class="text-2xl font-bold text-gray-400">Government</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+      <div class="container-wide mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Everything you need. Nothing you don't.
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Professional writing tools that respect your privacy.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="bg-white p-8 rounded-2xl border border-gray-100 hover:border-primary-200 hover:shadow-lg transition-all">
+              <div class="text-4xl mb-4">{feature.icon}</div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section class="section bg-gray-900 text-white">
+      <div class="container-wide mx-auto">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <h2 class="text-4xl font-bold mb-6">
+              Your writing is <span class="text-primary-400">your business</span>.
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">
+              Other writing assistants send every keystroke to their servers. That means your
+              confidential documents, personal messages, and sensitive data are all being transmitted
+              and stored by third parties.
+            </p>
+            <p class="text-xl text-gray-300 mb-8">
+              WriteForge is different. <strong class="text-white">Everything runs locally.</strong> Your
+              text never leaves your device - not for grammar checking, not for AI suggestions, not ever.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="text-gray-300">HIPAA-ready by architecture</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="text-gray-300">No BAA required</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-800 rounded-2xl p-8">
+            <h3 class="text-xl font-bold mb-6">How we compare</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm">
+                <thead>
+                  <tr class="border-b border-gray-700">
+                    <th class="text-left py-3 text-gray-400 font-medium">Feature</th>
+                    <th class="text-center py-3 text-primary-400 font-medium">WriteForge</th>
+                    <th class="text-center py-3 text-gray-400 font-medium">Grammarly</th>
+                    <th class="text-center py-3 text-gray-400 font-medium">LanguageTool</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisons.map((row) => (
+                    <tr class="border-b border-gray-700/50">
+                      <td class="py-3 text-gray-300">{row.feature}</td>
+                      <td class="py-3 text-center">
+                        {row.writeforge ? (
+                          <span class="text-green-400">✓</span>
+                        ) : (
+                          <span class="text-gray-600">✗</span>
+                        )}
+                      </td>
+                      <td class="py-3 text-center">
+                        {row.grammarly ? (
+                          <span class="text-green-400">✓</span>
+                        ) : (
+                          <span class="text-gray-600">✗</span>
+                        )}
+                      </td>
+                      <td class="py-3 text-center">
+                        {row.languagetool ? (
+                          <span class="text-green-400">✓</span>
+                        ) : (
+                          <span class="text-gray-600">✗</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section">
+      <div class="container-wide mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Simple, transparent pricing
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Start free, upgrade when you need AI features.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {pricingTiers.map((tier) => (
+            <div class={`rounded-2xl p-8 ${tier.highlighted ? 'bg-primary-600 text-white ring-4 ring-primary-600 ring-offset-4' : 'bg-white border border-gray-200'}`}>
+              <h3 class={`text-xl font-bold mb-2 ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                {tier.name}
+              </h3>
+              <p class={`text-sm mb-4 ${tier.highlighted ? 'text-primary-100' : 'text-gray-500'}`}>
+                {tier.description}
+              </p>
+              <div class="mb-6">
+                <span class={`text-4xl font-bold ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                  {tier.price}
+                </span>
+                <span class={tier.highlighted ? 'text-primary-100' : 'text-gray-500'}>
+                  {tier.period}
+                </span>
+                {tier.lifetime && (
+                  <p class={`text-sm mt-1 ${tier.highlighted ? 'text-primary-100' : 'text-gray-500'}`}>
+                    or {tier.lifetime}
+                  </p>
+                )}
+              </div>
+              <ul class="space-y-3 mb-8">
+                {tier.features.map((feature) => (
+                  <li class="flex items-center gap-2">
+                    <svg class={`w-5 h-5 ${tier.highlighted ? 'text-primary-200' : 'text-primary-600'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class={tier.highlighted ? 'text-white' : 'text-gray-600'}>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="#download"
+                class={`btn w-full ${tier.highlighted ? 'bg-white text-primary-600 hover:bg-gray-100' : 'btn-outline'}`}
+              >
+                {tier.cta}
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section bg-gray-50">
+      <div class="container-narrow mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Frequently asked questions
+          </h2>
+        </div>
+
+        <div class="space-y-6">
+          {faqs.map((faq) => (
+            <details class="group bg-white rounded-xl border border-gray-200 overflow-hidden">
+              <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                <h3 class="text-lg font-semibold text-gray-900 pr-4">{faq.question}</h3>
+                <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-6 text-gray-600">
+                {faq.answer}
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Download CTA Section -->
+    <section id="download" class="section bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+      <div class="container-narrow mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6">
+          Ready to write privately?
+        </h2>
+        <p class="text-xl text-primary-100 mb-10 max-w-xl mx-auto">
+          Download WriteForge and experience professional writing assistance that respects your privacy.
+        </p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+          <a href="#" class="btn bg-white text-primary-600 hover:bg-gray-100 text-lg px-8 py-4">
+            <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+              <circle cx="12" cy="12" r="5" fill="currentColor"/>
+            </svg>
+            Chrome Extension
+          </a>
+          <a href="#" class="btn bg-white/10 text-white hover:bg-white/20 text-lg px-8 py-4 border border-white/30">
+            <svg class="w-6 h-6 mr-2" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            macOS App
+          </a>
+        </div>
+
+        <p class="text-primary-200 text-sm">
+          Also available for Safari, Firefox, Windows, and Linux.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
