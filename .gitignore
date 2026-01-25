@@ -1,8 +1,58 @@
-# OS files
-.DS_Store
-Thumbs.db
+# Dependencies
+node_modules/
+.pnpm-store/
 
-# Editor files
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.js.map
+
+# IDE
+.idea/
+.vscode/
 *.swp
 *.swo
 *~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Turbo
+.turbo/
+
+# Desktop builds
+packages/desktop-mac/WriteForge.xcworkspace/
+packages/desktop-mac/DerivedData/
+packages/desktop-windows/bin/
+packages/desktop-windows/obj/
+packages/desktop-linux/target/
+
+# Models (downloaded separately)
+models/
+*.gguf
+
+# Docker volumes
+docker/languagetool/ngrams/
+
+# Secrets (never commit)
+*.pem
+*.key
+credentials.json

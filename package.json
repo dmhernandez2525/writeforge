@@ -1,0 +1,31 @@
+{
+  "name": "writeforge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first AI writing assistant - 100% on-device processing",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmhernandez2525/writeforge"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "extension:dev": "pnpm --filter @writeforge/extension dev",
+    "extension:build": "pnpm --filter @writeforge/extension build",
+    "core:build": "turbo run build --filter=@writeforge/core-*",
+    "languagetool:start": "docker compose -f docker/languagetool/docker-compose.yml up -d",
+    "languagetool:stop": "docker compose -f docker/languagetool/docker-compose.yml down"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.3.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

@@ -1,0 +1,12 @@
+packages:
+  # Core packages (shared across all platforms)
+  - "packages/core/*"
+
+  # Browser extension
+  - "packages/extension"
+
+  # Self-hosted API server
+  - "packages/api"
+
+  # Web applications
+  - "apps/*"

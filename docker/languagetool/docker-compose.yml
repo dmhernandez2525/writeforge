@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  languagetool:
+    image: erikvl87/languagetool:latest
+    container_name: writeforge-languagetool
+    ports:
+      - "8010:8010"
+    environment:
+      - Java_Xms=512m
+      - Java_Xmx=2g
+      - langtool_languageModel=/ngrams
+    volumes:
+      # Optional: Mount n-gram data for improved suggestions
+      # Download from: https://languagetool.org/download/ngram-data/
+      - ./ngrams:/ngrams:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8010/v2/check?language=en-US&text=test"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+# Usage:
+# Start: docker compose up -d
+# Stop: docker compose down
+# Logs: docker compose logs -f
+#
+# Test API:
+# curl -X POST "http://localhost:8010/v2/check" \
+#   -d "language=en-US" \
+#   -d "text=This are a test."
