@@ -1,9 +1,17 @@
 # WriteForge Work Status
 
-**Last Updated:** 2026-01-25
+**Last Updated:** 2026-01-25 17:30
 **Current Phase:** Phase 1 (MVP)
-**Current Feature:** Not Started
-**Status:** Project Scaffolding Complete
+**Current Feature:** Not Started - Ready to begin F1.1
+**Status:** Infrastructure Complete, Marketing Site Deployed
+
+---
+
+## Live URLs
+
+- **Marketing Site:** https://writeforge-site.onrender.com
+- **GitHub Repo:** https://github.com/dmhernandez2525/writeforge
+- **Render Dashboard:** https://dashboard.render.com/static/srv-d5r9ih6r433s738grqh0
 
 ---
 
@@ -17,10 +25,14 @@
 - [x] CODING_STANDARDS.md created
 - [x] Phase 1 SDDs created (F1.1 - F1.5)
 - [x] AGENT_PROMPT.md created
+- [x] Monorepo configuration (turbo.json, pnpm-workspace.yaml)
+- [x] Docker configuration for LanguageTool
+- [x] Marketing website (Astro + Tailwind)
+- [x] Render deployment configured
+- [x] GitHub repository created and pushed
+- [x] Added to portfolio website
 
 ### Not Started
-- [ ] Monorepo configuration (turbo.json, pnpm-workspace.yaml)
-- [ ] Docker configuration for LanguageTool
 - [ ] CI/CD pipelines
 - [ ] Core package implementations
 
@@ -40,22 +52,23 @@
 
 ## Next Steps
 
-1. **Complete project scaffolding:**
-   - Add turbo.json and pnpm-workspace.yaml
-   - Add docker-compose.yml for LanguageTool
-   - Add package.json files for each package
-   - Set up CI/CD workflows
-
-2. **Start F1.1 - LanguageTool Integration:**
+1. **Start F1.1 - LanguageTool Integration:**
    - Create @writeforge/core-grammar package
-   - Implement LanguageToolClient
-   - Implement GrammarService with caching
-   - Write unit tests
+   - Implement LanguageToolClient class
+   - Implement GrammarService with LRU caching
+   - Write unit tests (85% coverage target)
+   - See: `docs/sdd/phase-1/F1.1-languagetool-integration.md`
 
-3. **Continue with F1.2 - Chrome Extension:**
-   - Scaffold WXT project
-   - Implement content scripts
-   - Build UI components
+2. **Continue with F1.2 - Chrome Extension:**
+   - Scaffold WXT project in `packages/extension`
+   - Implement TextFieldMonitor (textarea + contenteditable)
+   - Build SuggestionRenderer with Shadow DOM
+   - Implement suggestion card UI
+   - See: `docs/sdd/phase-1/F1.2-chrome-extension-core.md`
+
+3. **Set up CI/CD:**
+   - GitHub Actions for extension builds
+   - Automated testing on PR
 
 ---
 
@@ -80,6 +93,8 @@ None currently.
 | Date | Focus | Outcome |
 |------|-------|---------|
 | 2026-01-25 | Project initialization | Structure and docs created |
+| 2026-01-25 | Marketing site + Deploy | Astro site deployed to Render at writeforge-site.onrender.com |
+| 2026-01-25 | Portfolio integration | Added WriteForge to portfolio projects (PR #22) |
 
 ---
 
