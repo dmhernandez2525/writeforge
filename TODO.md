@@ -19,11 +19,26 @@
 
 ### HIGH PRIORITY - Remote Access (Control Windows from Mac)
 
-- [ ] **Sign into Tailscale on Windows** - Same account as Mac for mesh networking
-  - Context: Tailscale is installed but not signed in. Need to connect both machines to same Tailscale network.
+- [ ] **Sign into Tailscale on BOTH machines** - Same account for mesh networking
+  - Context: Tailscale is installed on both Mac and Windows but neither is signed in.
   - Added: 2026-01-24
   - Priority: HIGH
-  - Steps: 1) Open Tailscale, 2) Sign in with same Google/GitHub account as Mac, 3) Note the Windows hostname/IP
+  - Steps:
+    - Mac: Open Tailscale app, sign in
+    - Windows: Open Tailscale app, sign in with SAME account
+    - Note both hostnames/IPs
+
+- [ ] **Enable SSH on Mac** - For terminal access from Windows
+  - Context: SSH server not enabled on Mac. Needs Full Disk Access for Terminal first.
+  - Added: 2026-01-24
+  - Priority: HIGH
+  - Steps: 1) System Settings > Privacy & Security > Full Disk Access > Toggle ON for Terminal, 2) Run `sudo systemsetup -setremotelogin on`
+
+- [ ] **Enable Screen Sharing on Mac** - For VNC access from Windows
+  - Context: Allows full desktop control via VNC
+  - Added: 2026-01-24
+  - Priority: HIGH
+  - Steps: System Settings > General > Sharing > Screen Sharing → ON
 
 - [ ] **Configure RustDesk for remote desktop** - Alternative to Chrome Remote Desktop
   - Context: RustDesk is installed but not configured. Provides remote desktop access.
@@ -105,15 +120,33 @@
   - Added: 2026-01-24
   - Priority: Low
 
-- [ ] **Pull Ollama models for local AI** - Download models for local inference
-  - Context: Ollama is installed but no models downloaded yet. RTX 2070 can run 7B-14B models well.
+- [ ] **Pull Ollama models on Windows** - Download models for local inference
+  - Context: Ollama is installed but no models downloaded. RTX 2070 can run 7B-14B models well.
   - Added: 2026-01-24
   - Priority: Low
-  - Suggested: `ollama pull qwen2.5-coder:7b` or `llama3.2:8b`
+  - Suggested: `ollama pull qwen2.5-coder:7b` (Windows GPU is smaller than Mac)
 
 ---
 
 ## Completed Tasks
+
+- [x] **Pull qwen2.5-coder:32b on Mac** - Coding-optimized Ollama model
+  - Completed: 2026-01-24
+  - 19GB model for local Claude Code usage
+
+- [x] **Update Mac CLAUDE.md with workflow rules** - Added multi-environment section
+  - Completed: 2026-01-24
+  - Now matches Windows workflow (pull from main, use PRs, check agent-sync/global-todo)
+
+- [x] **Update vscode-extensions.txt** - Full list of Mac VS Code extensions
+  - Completed: 2026-01-24
+  - Pushed to dev-environment-setup repo
+
+- [x] **Clone global-todo and agent-sync on Mac** - Cross-machine repos
+  - Completed: 2026-01-24
+
+- [x] **Update agent-sync with Mac status** - Answered Windows agent questions
+  - Completed: 2026-01-24
 
 - [x] **Update CLAUDE.md with multi-environment workflow rules** - Added git workflow, hotkey creation guidelines
   - Completed: 2026-01-24
