@@ -113,6 +113,25 @@
 
 ---
 
+### NEW PROJECT - WriteForge (AI Writing Assistant)
+
+- [ ] **WriteForge MVP Development** - Privacy-first AI writing assistant
+  - Context: Local-first Grammarly alternative. 100% on-device processing, no cloud dependency.
+  - Added: 2026-01-25
+  - Priority: Medium (new project, not blocking other work)
+  - Location: `~/Desktop/Projects/PersonalProjects/writeforge/`
+  - Status: **Project scaffolding complete**, ready for Phase 1 development
+  - Phase 1 Features:
+    - [ ] F1.1 LanguageTool Integration (grammar checking)
+    - [ ] F1.2 Chrome Extension Core
+    - [ ] F1.3 macOS Desktop App
+    - [ ] F1.4 Local LLM Integration (Qwen2.5)
+    - [ ] F1.5 Personal Dictionary
+  - Documentation: `docs/ROADMAP.md`, SDDs in `docs/sdd/phase-1/`
+  - Agent Prompt: `_@agent-prompts/writeforge/AGENT_PROMPT.md`
+
+---
+
 ### LOW PRIORITY
 
 - [ ] **Decide on Windows username change** - Options: display name only, new user, or skip
