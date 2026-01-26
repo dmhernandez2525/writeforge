@@ -1,3 +1,5 @@
+name: writeforge
+
 version: '3.8'
 
 services:
