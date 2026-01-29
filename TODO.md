@@ -119,7 +119,7 @@
   - Context: Local-first Grammarly alternative. 100% on-device processing, no cloud dependency.
   - Added: 2026-01-25
   - Priority: Medium (new project, not blocking other work)
-  - Location: `~/Desktop/Projects/PersonalProjects/writeforge/`
+  - Location: `~/Desktop/Projects/writeforge/`
   - Status: **Project scaffolding complete**, ready for Phase 1 development
   - Phase 1 Features:
     - [ ] F1.1 LanguageTool Integration (grammar checking)
