@@ -132,6 +132,16 @@
 
 ---
 
+### FUTURE FEATURE - RBT Study Guide
+
+- [ ] **Add "Christina" easter egg questions** - Fun/joke flashcards about Christina (Daniel's wife)
+  - Context: Sprinkle a few lighthearted, playful questions about Christina throughout the study deck as easter eggs
+  - Added: 2026-02-21
+  - Priority: Low (fun feature, not blocking)
+  - Location: `~/Desktop/Projects/rbt-study-guide/`
+
+---
+
 ### LOW PRIORITY
 
 - [ ] **Decide on Windows username change** - Options: display name only, new user, or skip
