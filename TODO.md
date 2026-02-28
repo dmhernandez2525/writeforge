@@ -2,6 +2,8 @@
 
 > **For Claude:** Read only the "Active Tasks" section. Skip "Completed Tasks" unless specifically asked.
 
+> **NOTE (2026-02-28):** The authoritative master TODO is now `~/Desktop/command-center/TODO.md` (114+ items across all projects, with P0-P3 priorities and project tags). This file still tracks Windows/infra-specific tasks. For everything else, use command-center.
+
 ---
 
 ## Active Tasks
